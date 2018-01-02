@@ -1,15 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Login</title>
-</head>
-<body>
-<form action="login" method="post">
-    <input name="user_name" required="required" placeholder="username"/>
-    <input type="password" name="user_password" required="required" placeholder="password"/>
-    <input type="submit" value="login"/>
-</form>
 
-</body>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		
+		<link rel="shortcut icon" type="image/ico" href="http://freelancesuite.com/images/favicon.ico"/>
+		<title>Login</title>		
+		<link th:href="@{/css/styles.css}" type="text/css" media="screen" rel="stylesheet"/>
+
+	</head>
+	<body id="login">
+		<div id="wrappertop"></div>
+			<div id="wrapper">
+					<div id="content">
+						<div id="header">
+							<h1><img th:src="@{/src/logo.png}" alt="Educational System"/></h1>
+						</div>
+						<div id="darkbanner" class="banner320">
+							<h2>Login</h2>
+						</div>
+						<div id="darkbannerwrap">
+						</div>
+						<form id="loginForm" name="loginForm" method="post">
+						<fieldset class="form">
+                        	                                                                                       <p>
+								<label for="user_name">Username:</label>
+								<input name="username" id="user_name" type="text" value=""/>
+							</p>
+							<p>
+								<label for="user_password">Password:</label>
+								<input name="password" id="user_password" type="password"/>
+							</p>
+							<button type="submit" class="positive" name="Submit" id="submit_btn">
+								<img th:src="@{/src/key.png}" alt="Announcement"/>Login</button>
+								<ul id="forgottenpassword">
+								<li class="boldtext">|</li>
+								<li><a href="#">Forgotten it?</a></li>
+							</ul>
+                            						</fieldset>
+						
+						
+					</form></div>
+				</div>   
+
+<div id="wrapperbottom_branding">
+	<div id="wrapperbottom_branding_text">
+		<a href="#" style="text-decoration:none">Powered By Ghost Kui</a>
+	</div>
+</div>
+	</body>
+
+<script th:src="@{/js/jquery-3.2.1.min.js}"/>
+<script th:src="@{/js/login.js}"/>
+<script th:src="@{/js/bootstrap.js}"/>
+
 </html>
