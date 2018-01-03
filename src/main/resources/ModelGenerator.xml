@@ -31,7 +31,7 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table schema="universityDB" tableName="student" enableCountByExample="false" enableDeleteByExample="false"
+        <table schema="universityDB" tableName="takes" enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false"/>
     </context>
 </generatorConfiguration>

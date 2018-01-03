@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="'Hello,'+${username}">Failed</title>
+    <link th:href="@{/css/bootstrap.css}" type="text/css" media="screen" rel="stylesheet"/>
+    <link th:href="@{/css/bootstrap-theme.css}" type="text/css" media="screen" rel="stylesheet"/>
+
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Educational System</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="/section">Course Table</a></li>
+                <li><a href="#">Grade Check</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a th:text="'Welcome, '+${username}"></a></li>
+                <li><a href="/logout">Log out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<table class="table">
+    <tr>
+        <td>courseId</td>
+        <td>secId</td>
+        <td>semester</td>
+        <td>year</td>
+        <td>grade</td>
+    </tr>
+<tr th:each="o : ${list}" >
+    <td th:text="${o.courseId}"></td>
+    <td th:text="${o.secId}"></td>
+    <td th:text="${o.semester}"></td>
+    <td th:text="${o.year}"></td>
+    <td th:text="${o.grade}"></td>
+</tr>
+</table>
+</body>
+
+<div style="position:fixed;bottom:0;width:100%;text-align: center" th:include="footer :: copy"></div>
+<script th:src="@{/js/jquery-3.2.1.min.js}"/>
+<script th:src="@{/js/bootstrap.js}"/>
+</html>

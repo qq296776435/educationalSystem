@@ -17,8 +17,11 @@ $("#loginForm").submit(function () {
             success: function (data) {
                 if(data.code==0) {
                     alert(data.msg);
-                } else {
+                }else if (data.code=="1"){
                     $("#loginForm").attr("action","index");
+
+                }else if (data.code=="2"){
+                    $("#loginForm").attr("action","admin");
                 }
             },
             error: function () {
