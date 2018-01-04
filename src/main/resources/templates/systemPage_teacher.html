@@ -7,7 +7,7 @@
     <link th:href="@{/css/bootstrap-theme.css}" type="text/css" media="screen" rel="stylesheet"/>
 
 </head>
-<body>
+<body ng-app="system_admin">
 <nav class="navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -15,8 +15,9 @@
         </div>
         <div>
             <ul class="nav navbar-nav">
-                <li><a href="#">Course Modify</a></li>
-                <li><a href="#">Grade Registration</a></li>
+                <li><a href="#!/courseModify">Course Modify</a></li>
+                <li><a href="#!/gradeRegist">Grade Registration</a></li>
+                <li><a href="#!/salaryList">Salary List</a></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -26,10 +27,33 @@
         </div>
     </div>
 </nav>
-
+<ng-view></ng-view>
 </body>
 <div style="position:fixed;bottom:0;width:100%;text-align: center" th:include="footer :: copy"></div>
-
+<script type="text/ng-template" id="salaryList">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td>ID</td>
+                <td>name</td>
+                <td>dept_name</td>
+                <td>salary</td>
+            </tr>
+            <tr th:each="o : ${list}" >
+                <td th:text="${o.id}"></td>
+                <td th:text="${o.name}"></td>
+                <td th:text="${o.deptName}"></td>
+                <td th:text="${o.salary}"></td>
+            </tr>
+        </table>
+    </div>
+</script>
 <script th:src="@{/js/jquery-3.2.1.min.js}"/>
 <script th:src="@{/js/bootstrap.js}"/>
+<script th:src="@{/js/angular.js}"/>
+<script th:src="@{/js/angular-route.js}"/>
+<script th:src="@{/js/angular-cookies.js}"/>
+<script th:src="@{/js/angular-sanitize.js}"/>
+<script th:src="@{/js/angular-resource.js}"/>
+<script th:src="@{/js/systemPage_teacher.js}"/>
 </html>

@@ -102,7 +102,7 @@ public class LoginController {
     public String index(Model model, HttpSession session){
         User user=(User) session.getAttribute("user");
         String id = ((User)session.getAttribute("user")).getId();
-        System.out.print(id);
+
         List<Takes> takesList = mainService.getTakes(id);
 
         model.addAttribute("list",takesList);
@@ -113,6 +113,11 @@ public class LoginController {
     @RequestMapping(value = "/admin")
     public String admin(Model model, HttpSession session){
         User user=(User) session.getAttribute("user");
+        String id = ((User)session.getAttribute("user")).getId();
+
+        List<Instructor> instructorList = mainService.getAllInstructors();
+
+        model.addAttribute("list",instructorList);
         model.addAttribute("username",user.getName());
         model.addAttribute("userID",user.getId());
         return "systemPage_teacher";

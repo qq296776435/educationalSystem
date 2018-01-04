@@ -7,7 +7,7 @@
     <link th:href="@{/css/bootstrap-theme.css}" type="text/css" media="screen" rel="stylesheet"/>
 
 </head>
-<body>
+<body ng-app="system">
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -15,8 +15,8 @@
         </div>
         <div>
             <ul class="nav navbar-nav">
-                <li><a href="/section">Course Table</a></li>
-                <li><a href="#">Grade Check</a></li>
+                <li><a href="#!/courseTable">Course Table</a></li>
+                <li><a href="#!/gradeCheck">Grade Check</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a th:text="'Welcome, '+${username}"></a></li>
@@ -25,25 +25,55 @@
         </div>
     </div>
 </nav>
+<ng-view></ng-view>
+<!--<div ng-controller="test">-->
+    <!--<input ng-model="message"/>-->
+<!--</div>-->
+<script type="text/ng-template" id="courseTable">
+<div class="container">
 <table class="table">
     <tr>
         <td>courseId</td>
         <td>secId</td>
         <td>semester</td>
         <td>year</td>
-        <td>grade</td>
     </tr>
-<tr th:each="o : ${list}" >
-    <td th:text="${o.courseId}"></td>
-    <td th:text="${o.secId}"></td>
-    <td th:text="${o.semester}"></td>
-    <td th:text="${o.year}"></td>
-    <td th:text="${o.grade}"></td>
-</tr>
+    <tr th:each="o : ${list}" >
+        <td th:text="${o.courseId}"></td>
+        <td th:text="${o.secId}"></td>
+        <td th:text="${o.semester}"></td>
+        <td th:text="${o.year}"></td>
+    </tr>
 </table>
+</div>
+</script>
+<script type="text/ng-template" id="gradeCheck">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <td>courseId</td>
+                <td>semester</td>
+                <td>year</td>
+                <td>grade</td>
+            </tr>
+            <tr th:each="o : ${list}" >
+                <td th:text="${o.courseId}"></td>
+                <td th:text="${o.semester}"></td>
+                <td th:text="${o.year}"></td>
+                <td th:text="${o.grade}"></td>
+            </tr>
+        </table>
+    </div>
+</script>
 </body>
 
 <div style="position:fixed;bottom:0;width:100%;text-align: center" th:include="footer :: copy"></div>
 <script th:src="@{/js/jquery-3.2.1.min.js}"/>
+<script th:src="@{/js/angular.js}"/>
+<script th:src="@{/js/angular-route.js}"/>
+<script th:src="@{/js/angular-cookies.js}"/>
+<script th:src="@{/js/angular-sanitize.js}"/>
+<script th:src="@{/js/angular-resource.js}"/>
 <script th:src="@{/js/bootstrap.js}"/>
+<script th:src="@{/js/systemPage.js}"/>
 </html>

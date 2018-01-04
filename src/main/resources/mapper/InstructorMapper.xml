@@ -114,4 +114,7 @@
   <select id="selectByID" parameterType="string" resultMap="BaseResultMap">
     SELECT * FROM instructor WHERE id=#{id}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    SELECT * FROM instructor
+  </select>
 </mapper>

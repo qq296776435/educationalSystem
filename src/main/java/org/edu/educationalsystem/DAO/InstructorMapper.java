@@ -3,6 +3,8 @@ package org.edu.educationalsystem.DAO;
 import org.edu.educationalsystem.Domain.Instructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface InstructorMapper {
     /**
@@ -53,4 +55,5 @@ public interface InstructorMapper {
      */
     int updateByPrimaryKey(Instructor record);
     Instructor selectByID(Instructor instructor);
+    List<Instructor> selectAll();
 }
